@@ -116,6 +116,45 @@ to
 x, y int
 ```
 
+Types:
+- bool
+- string
+- int  int8  int16  int32  int64 # can ignore anything other than int for now
+- uint uint8 uint16 uint32 uint64 uintptr  # can ignore everything in this row
+- byte // alias for uint8
+- rune // alias for int32 & represents a Unicode code point # can ignore everything in this row
+- float32 float64 # use 64 bits given your computer is 64 bits
+- complex64 complex128 # use 64 bits given your computer is 64 bits
+
+When you need an integer value you should use **int** unless you have a specific reason to use a sized or unsigned integer type.
+
+The example shows variables of several types, and also that variable declarations may be "factored" into blocks, as with import statements.
+```go
+package main
+
+import (
+	"fmt"
+	"math/cmplx"
+)
+
+var (
+	ToBe   bool       = false
+	MaxInt uint64     = 1<<64 - 1
+	z      complex128 = cmplx.Sqrt(-5 + 12i)
+)
+
+func main() {
+	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
+	fmt.Printf("Type: %T Value: %v\n", z, z)
+}
+```
+Output:
+Type: bool Value: false
+Type: uint64 Value: 18446744073709551615
+Type: complex128 Value: (2+3i)
+#### I didn't understand this code yet
+
 ### Return
 
 A return statement without arguments returns the named return values. This is known as a "naked" return.
@@ -133,9 +172,9 @@ func main() {
 }
 ```
 
-### Var statement and initialazing
+### Declarations: Var statement and initializing
 
-The var statement declares a list of variables; as in function argument lists, the type is last.
+The var statement declares a list of variables of 1 type; as in function argument lists, the type is last.
 
 A var statement can be at package or function level. We see both in this example.
 ```go
@@ -148,7 +187,7 @@ func main() {
 ```
 The return will be: 0 false false false because when declaring it sets the default value. 0 for int and false for boolean
 
-Declaring is optional because it can take the type of the initializer. also when using initializer it can overwrite the initial value but it has to stay the same type:
+Declaring is optional because it can take the type of the initializer. also when using initializer it can overwrite the initial value but it has to stay the same type. to change type you need to set the type again with a complete satement var j int = 1 (if you want to make a integer)
 var i, j int = 1, 2
 
 func main() {
@@ -156,3 +195,15 @@ func main() {
 	var c, python, java, i, j = true, false, "no!", 12,13
 	fmt.Println(i, j, c, python, java)
 }
+
+Inside a function, the := short assignment statement can be used in place of a var declaration with implicit type.
+Outside a function, every statement begins with a keyword (var, func, and so on) and so the := construct is not available.
+```go
+func main() {
+	var i, j int = 1, 2
+	k := 3
+	c, python, java := true, false, "no!"
+
+	fmt.Println(i, j, k, c, python, java)
+}
+```

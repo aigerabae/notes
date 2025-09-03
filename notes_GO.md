@@ -155,6 +155,16 @@ Type: uint64 Value: 18446744073709551615
 Type: complex128 Value: (2+3i)
 #### I didn't understand this code yet
 
+To convert between types:
+```go
+func main() {
+	var x, y int = 3, 4
+	var f float64 = math.Sqrt(float64(x*x + y*y))
+	var z uint = uint(f)
+	fmt.Println(x, y, z)
+}
+```
+
 ### Return
 
 A return statement without arguments returns the named return values. This is known as a "naked" return.
@@ -207,3 +217,29 @@ func main() {
 	fmt.Println(i, j, k, c, python, java)
 }
 ```
+
+### Constants:
+Constants are declared like variables, but with the const keyword.
+
+Constants can be character, string, boolean, or numeric values.
+
+Constants cannot be declared using the := syntax.
+```go
+package main
+
+import "fmt"
+
+const Pi = 3.14
+
+func main() {
+	const World = "世界"
+	fmt.Println("Hello", World)
+	fmt.Println("Happy", Pi, "Day")
+
+	const Truth = true
+	fmt.Println("Go rules?", Truth)
+}
+```
+
+Currently working through https://go.dev/tour/list at step 16 of Packages, Variables, and Functions of Basics. I didn't understand what numeric constants are but I don't think it's that necesary\. So I'm done with the first part of the tutorial.
+For, if, else, defer and switch statements should be fairly understandable (Section 2). I will go through that quickly later and then I would need to watch the videos provided in the school platform to set up my computer to complete tasks. Aside from the knowledge I have I don't think I need to much extra info. The question is whether I would be able to finish that by tomorrow 10AM

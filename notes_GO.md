@@ -283,3 +283,50 @@ defer statement defers executaion of a function intil the surrounding function r
 ### fmt
 Println - prints integers
 Printf - prints strings and combined 
+
+
+
+# Making tasks gradeable:
+In command line
+```bash
+mkdir printalphabet
+cd printalphabet
+code main.go
+
+cd ../
+go mod init piscine
+cd printalphabet 
+go get github.com/01-edu/z01
+```
+
+In the main.go script:
+```go
+package main
+import "github.com/01-edu/z01"
+func main() {
+	z01.PrintRune('a')
+	z01.PrintRune('\n')
+}
+```
+
+In command line again:
+```bash
+go run main.go
+```
+
+In the end you should have go.mod file, go.sum file and printalphabet repository added to your git; inside printalphabet should be main.go file
+
+For the next task:
+outside of printalphabet:
+```bash
+code isnegative.go
+```
+In isnegative.go:
+```go
+package piscine
+func isNegative(nb int) {
+	return 1
+}
+Adding isnegative to git again
+
+I managed to solve task1 in quest2. Seems like I need to commit to the same piscinego repository. Need to put the go files into the same piscinego folder

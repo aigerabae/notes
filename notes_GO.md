@@ -243,3 +243,43 @@ func main() {
 
 Currently working through https://go.dev/tour/list at step 16 of Packages, Variables, and Functions of Basics. I didn't understand what numeric constants are but I don't think it's that necesary\. So I'm done with the first part of the tutorial.
 For, if, else, defer and switch statements should be fairly understandable (Section 2). I will go through that quickly later and then I would need to watch the videos provided in the school platform to set up my computer to complete tasks. Aside from the knowledge I have I don't think I need to much extra info. The question is whether I would be able to finish that by tomorrow 10AM
+
+### Loops and constructs:
+Basics of for loops:
+```go
+for i := 0; i < 10; i++ {
+	sum += i
+}
+```
+3 parts separated by semicolons:
+init statement (variable declaration, only used in the loop): for i := 0 - executed before the first iteration
+**condition expression**: i < 10 - evaluated before each iteration
+post statement:  i++  - executed at the end of each iteratopm
+Braces contain the action to be done in the loop - sum += 1
+Init and ost statements are optional if you declared the variable to be looping over earlier; and the action to be done after each loop inside the loop; however you have to keep both semicolos (;) before and after condition expression or you can drope both of them (either both are present or 0)
+But without condition expression the loop would be infinite and that's not good
+
+**Same for if statements** They can also contain return statement if the if is located inside a functiob
+```go
+if x < 0 {
+	return sqrt(-x) + "i"
+}
+```
+You can include the short init statement; the variable would only be used inside the if statement and inside its else statement
+```go
+	z := 5
+	if z < 3 {
+		fmt.Println(z)
+	} else {
+		fmt.Printf(">3")
+	}
+```
+### switch 
+switch statement is a short way to write if else statement
+
+### defer
+defer statement defers executaion of a function intil the surrounding function returns (everything in it finishes); multiple defer calls stacl and are executed last in first out order (the ones that came last would be executed first)
+
+### fmt
+Println - prints integers
+Printf - prints strings and combined 

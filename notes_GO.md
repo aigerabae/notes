@@ -328,5 +328,12 @@ func isNegative(nb int) {
 	return 1
 }
 Adding isnegative to git again
+```
 
-I managed to solve task1 in quest2. Seems like I need to commit to the same piscinego repository. Need to put the go files into the same piscinego folder
+### Strings
+Making string mutable:
+```go
+    originalString := "hello"
+    byteSlice := []byte(originalString)
+    byteSlice[0] = 'H' // Change the first character to 'H'
+```
